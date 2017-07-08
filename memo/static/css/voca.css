@@ -1,0 +1,86 @@
+#content{
+    width:1080px;
+    margin: auto;
+}
+
+#bar{
+  margin-bottom: 20px;
+}
+
+#voca_list{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#content_block{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#word{
+  text-align: center;
+  font-size: 24px;
+  display: inline-block;
+  width: 300px;
+}
+#mean{
+  text-align: center;
+  font-size: 24px;
+  display: inline-block;
+  width: 350px;
+}
+#ref{
+  text-align: center;
+  font-size: 24px;
+  display: inline-block;
+  width: 350px;
+}
+#delete{
+  text-align: center;
+  display: inline-block;
+  width: 27px;
+  height:27px;
+  float:right;
+  cursor: default;
+  background-color: white;
+
+}
+#delete a{
+  color: black;
+}
+#delete:hover{
+  background-color: black;
+  color: white;
+}
+#delete a:hover{
+  color: white;
+}
+
+#add{
+  float: right;
+}
+
+#add_button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  width: 55px;
+  height:55px;
+  cursor: default;
+  background-color: white;
+  color: black;
+  float: right;
+}
+#add_button:hover{
+  background-color: black;
+  color: white;
+}
+
+#add_form{
+  display: none;
+}
+
+#empty{
+  font-style: italic;
+  font-size: 15px;
+}

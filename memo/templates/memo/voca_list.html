@@ -1,9 +1,52 @@
+{% load staticfiles %}
 <html>
     <head>
-        <title>Thaloo's Vocabulary Note!</title>
+    <link rel="stylesheet" href="{% static 'css/voca.css' %}" >
+    <title>Thaloo's Vocabulary Note!</title>
+    <script>
+    function ToggleForm() {
+      var x = document.getElementById('add_form');
+      x.style.display = x.style.display == "block" ? "none" : "block";
+    }
+    </script>
     </head>
     <body>
-        <p>Hi there!</p>
-        <p>It works!</p>
+      <div id="content">
+        <div id="bar">
+          <span id="word" style="text-align: center">WORD</span>
+          <span id="mean" style="text-align: center">TRANSLATION</span>
+          <span id="ref" style="text-align: center">REFERENCE</span>
+        </div>
+        <div id="voca_list">
+        {% if voca_set == None %}
+          <div id="empty"><p>EMPTY!</p></div>
+        {% endif %}
+        {% for voca in voca_set %}
+          <div id="content_block">
+              <span id="word">{{voca.vocabulary}}</span>
+              <span id="mean">{{voca.meaning}}</span>
+              {% if voca.reference %}
+                <span id="ref"><a href="{{voca.reference}}" target="_blank">link</a></span>
+              {% endif %}
+              <span id="delete">
+                <a href="" style="text-decoration:none;">x</a>
+              </span>
+          </div>
+        {% endfor %}
+      </div>
+        <div id="add">
+          <div id="add_button" onclick="ToggleForm()">
+            &nbsp;+
+          </div>
+          <div id="add_form">
+              <form method="POST">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">SAVE</button>
+              </form>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>
